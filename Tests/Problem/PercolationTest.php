@@ -30,7 +30,7 @@ class PercolationTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($p->isBlockedCell(8));
     }
 
-    public function xtestPercolates()
+    public function testPercolates()
     {
         $p = new Percolation(5);
         $p->setCells(array(
