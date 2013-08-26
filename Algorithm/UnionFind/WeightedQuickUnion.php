@@ -9,7 +9,6 @@ class WeightedQuickUnion extends QuickUnion
     public function __construct($count)
     {
         parent::__construct($count);
-
         $this->sizes = array_fill(0, $this->getCount(), 1);
     }
 
@@ -17,8 +16,8 @@ class WeightedQuickUnion extends QuickUnion
     {
         $pRoot = $this->getRoot($p);
         $qRoot = $this->getRoot($q);
-        $pSize = $this->getSize($p);
-        $qSize = $this->getSize($q);
+        $pSize = $this->getSize($pRoot);
+        $qSize = $this->getSize($qRoot);
 
         if ($qSize > $pSize) {
             $this->ids[$pRoot] = $this->ids[$qRoot];

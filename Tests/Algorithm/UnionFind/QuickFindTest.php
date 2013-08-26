@@ -52,6 +52,19 @@ class QuickFindTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(array(1, 1, 1, 8, 8, 1, 1, 1, 8, 8), $qf->getValues());
     }
 
+    public function testUnion2()
+    {
+        $qf = new QuickFind(10);
+        $qf->union(4, 7);
+        $qf->union(6, 5);
+        $qf->union(1, 2);
+        $qf->union(2, 5);
+        $qf->union(5, 0);
+        $qf->union(1, 9);
+
+        $this->assertEquals(array(9, 9, 9, 3, 7, 9, 9, 7, 8, 9), $qf->getValues());
+    }
+
     /**
      * @return array
      */
