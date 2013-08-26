@@ -116,18 +116,12 @@ class Percolation
 
         // Connect with top
         if ($y === 0) {
-            $top = $this->getTop();
-            for ($i = 0; $i < $this->n; $i++) {
-                $uf->union($top, $i);
-            }
+            $uf->union($this->getTop(), $x);
         }
 
         // Connect with bottom
         if ($y === $this->n - 1) {
-            $bottom = $this->getBottom();
-            for ($i = 0; $i < $this->n; $i++) {
-                $uf->union($bottom, $this->n * $y + $i);
-            }
+            $uf->union($this->getBottom(), $this->n * $y + $x);
         }
 
         // Connect with left
